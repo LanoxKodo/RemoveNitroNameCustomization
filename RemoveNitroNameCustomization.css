@@ -1,0 +1,108 @@
+/**
+ * @name RemoveNitroNameCustomization (CNNC) V1, for any Discord modifications that permit custom css usage.
+ * @description Revert user displaynames to not show custom fonts or colorations that nitro permits.
+ *
+ * @author LanoxKodo
+ * @version 1.0
+ * @source https://github.com/LanoxKodo/RemoveNitroNameCustomization
+ * @website https://lanoxkodo.github.io
+ * @invite 36bU828tHc
+ *
+ * NOTE: This may not work on all effects, I have vetted against a few effects which all now appear just the same as non-nitro users. I don't use nitro myself, so if you find an effect is non `fixed`, then please let me know either on the Github repository or via my discord server - I'm not receptive to out-of-blue DMs for security reasons if no servers or friends are strongly in-common. Cheers~
+ */
+
+/* General: DM lists, chat usernames, profile modals */
+.withDisplayNameStyles__20a53,
+.withDisplayNameStyles_c19a55,
+.nicknameWithDisplayNameStyles__63ed3,
+.dnsFont__89a31,
+[class*="Font__"],
+[data-username-with-effects] {
+  font-family: var(--font-primary);
+  font-style: normal;
+  text-transform: none;
+  letter-spacing: normal;
+  -webkit-text-stroke: 0;
+  filter: none;
+  text-shadow: none;
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+/* Allow themes to decide font weight and color */
+.withDisplayNameStyles__20a53,
+.withDisplayNameStyles_c19a55,
+.nicknameWithDisplayNameStyles__63ed3,
+[data-username-with-effects] {
+  font-weight: inherit;
+  color: inherit;
+}
+
+/* Reset Discord Nitro inline color variables */
+.container_dfb989,
+[data-username-with-effects],
+.withDisplayNameStyles__20a53,
+.withDisplayNameStyles_c19a55,
+.nicknameWithDisplayNameStyles__63ed3 {
+  --custom-display-name-styles-main-color: inherit !important;
+  --custom-display-name-styles-light-1-color: inherit !important;
+  --custom-display-name-styles-light-2-color: inherit !important;
+  --custom-display-name-styles-dark-1-color: inherit !important;
+  --custom-display-name-styles-dark-2-color: inherit !important;
+  --custom-display-name-styles-font-opacity: 1 !important;
+  --custom-display-name-styles-wrap: normal !important;
+}
+
+/* Various overrides for `<effect>_dfb989` styles*/
+/* Dear user, if these lines don't fix a certain effect, please let me know~ */
+.showEffect_dfb989.container_dfb989 [class*="_dfb989"] {
+  --webkit-text-stroke-width: 0 !important;
+  --custom-neon-stroke-width: 0 !important;
+  --custom-toon-stroke-width: 0 !important;
+  /* neon_deb989 specifics */
+  -webkit-text-stroke-width: 0 !important;
+  animation: 0 !important;
+  color: inherit;
+}
+
+/* Remove that 'glow' effect if present */
+.glowContainer_dfb989[aria-hidden="true"],
+.innerContainer_dfb989[aria-hidden="true"],
+.neonGlow_dfb989[aria-hidden="true"],
+[class*="Glow_"][aria-hidden="true"],
+[class*="glow_"][aria-hidden="true"] {
+  display: none !important;
+}
+
+/* DM/Memberlist fix - might not be needed */
+.withDisplayNameStyles__20a53 span[data-username-with-effects] {
+  display: block;
+}
+
+/* Profile modal fixes, open for other themes to modify if needed */
+.profile__9c3be .nicknameWithDisplayNameStyles__63ed3,
+.profile__9c3be [data-username-with-effects] {
+  font-family: var(--font-primary);
+  font-weight: inherit;
+  color: inherit;
+  text-shadow: none;
+  animation: none;
+  filter: none;
+}
+
+/* In-Chat message usernames fix (overrides Nitro font/color) */
+.withDisplayNameStyles_c19a55 .container_dfb989,
+.withDisplayNameStyles_c19a55 [data-username-with-effects] {
+  font-family: var(--font-primary);
+  color: inherit;
+  text-shadow: none;
+  filter: none;
+  animation: none;
+}
+
+/* Ensure hover and click-able states stay visible */
+.username_c19a55.clickable_c19a55:hover,
+.message__5126c .username_c19a55.clickable_c19a55 {
+  color: var(--text-link);
+  cursor: pointer;
+}
